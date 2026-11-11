@@ -1,0 +1,10 @@
+# Ambiente virtual e caches
+.venv/
+venv/
+pip-cache/
+.tmp/
+__pycache__/
+*.pyc
+
+# Arquivos temporários do Excel
+~$*
