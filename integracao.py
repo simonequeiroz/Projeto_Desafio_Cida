@@ -5,7 +5,7 @@
 import pandas as pd
 
 # Arquivos Excel
-arquivo_grupo = "Planilha_Python_Cida_2_corrigida.xlsx"
+arquivo_grupo = "Planilha_Python_CIDA_2_corrigida.xlsx"
 arquivo_professor = "experimento.xlsx"
 
 # Leitura da planilha do grupo

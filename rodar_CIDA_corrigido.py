@@ -135,6 +135,10 @@ def main():
         dp = valores_k.std(ddof=1)
         margem = t_critico_95_gl4 * dp / math.sqrt(n_medicoes)
 
+        # K da faixa linear: média das quatro primeiras medições
+        # (exclui a 5ª, de carga mais alta, onde a mola pode endurecer).
+        k_linear = valores_k[:4].mean()
+
         quinto = dados.iloc[4]
 
         if pd.isna(mola["C"]) or mola["C"] == 0:
@@ -151,6 +155,7 @@ def main():
             "K_desvio_padrao": dp,
             "IC95_inferior": media - margem,
             "IC95_superior": media + margem,
+            "K_linear_4_kgf_mm": k_linear,
             "carga_5_kgf": quinto["carga"],
             "alongamento_5_mm": quinto["alongamento"],
             "ductilidade_5_pct": ductilidade
@@ -165,7 +170,8 @@ def main():
     print("\nResultados calculados por mola:")
     print(resumo[
         ["ID", "origem", "K_media_kgf_mm",
-         "IC95_inferior", "IC95_superior", "ductilidade_5_pct"]
+         "IC95_inferior", "IC95_superior", "K_linear_4_kgf_mm",
+         "ductilidade_5_pct"]
     ].to_string(index=False))
 
     print("\nArquivos gerados com sucesso:")
