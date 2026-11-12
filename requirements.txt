@@ -1,5 +1,5 @@
 pandas
 numpy
+scipy
 openpyxl
-matplotlib
-seaborn
+matplotlib>=3.9
